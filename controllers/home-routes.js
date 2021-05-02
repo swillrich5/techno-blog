@@ -176,6 +176,9 @@ router.get('/dashboard/:id', withAuth, async (req, res) => {
     });
 
     const blogpost = dbBlogpostData.get({ plain: true });
+
+    console.log(blogpost);
+
     res.render('editPost', { blogpost, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);

@@ -12,6 +12,7 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.username = req.body.username;   // inserting for use in dashboard?
+      req.session.userID = dbUserData.id;
 
       res.status(200).json(dbUserData);
     });
@@ -49,6 +50,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.username = req.body.username;   // inserting for use in dashboard?
+      req.session.userID = dbUserData.id;
 
       res
         .status(200)

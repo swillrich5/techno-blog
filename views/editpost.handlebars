@@ -1,0 +1,27 @@
+<section class="card bg-dark text-white m-2">
+    <div class="card-header bg-dark">
+      Edit Post
+    </div>
+    <div class="card-text text-dark m-1">
+      <form class="login-form m-1">
+           <input type="hidden" id="blogpost-id" name="ID" value="{{blogpost.id}}">
+        <div class="form-group">
+          <label for="blogpost-title">Title</label>
+          <input class="form-control" id="blogpost-title" value="{{blogpost.title}}"">
+        </div>
+        <div class="form-group">
+            <label for="blogpost-content">Content</label>
+            <textarea class="form-control" id="blogpost-content" rows="2">"{{ blogpost.content }}"</textarea>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-secondary btn-block" type="submit" data-id="{{ blogpost.id }}" id="update-button">Update Post</button>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-secondary btn-block" data-id="{{ blogpost.id }}" id="delete-button" type="submit">Delete</button>
+        </div>
+        <a href="/signup" class="text-dark signup-link">Sign Up Instead</a>
+      </form>
+    </div>
+</section>
+
+<script src="/js/editPost.js"></script>
