@@ -26,13 +26,14 @@ Comment.init(
         key: 'id',
       },
     },
-    post_id: {
+    blogpost_id: {
         type: DataTypes.INTEGER,
         references: {
           model: 'blogpost',
           key: 'id',
         },
-      },  },
+      },  
+  },
   {
     sequelize,
     freezeTableName: true,

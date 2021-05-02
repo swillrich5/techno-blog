@@ -6,63 +6,63 @@ const commentdata = [
                 'Yes, but can it scale?',
         creation_date: 'March 31, 2020',
         user_id: 1,
-        post_id: 1,
+        blogpost_id: 1,
     },
     {
          comment: 
                 'Yes, it\'s good to have a standard way to implement an application',
         creation_date: 'March 31, 2020',
         user_id: 2,
-        post_id: 1,
+        blogpost_id: 1,
     },
     {
         comment: 
                 'Comment on post 2 userID 2',
         creation_date: 'March 31, 2020',
         user_id: 1,
-        post_id: 1,
+        blogpost_id: 1,
     },
     {
         comment: 
                 'Comment Comment Comment',
         creation_date: 'March 31, 2020',
         user_id: 3,
-        post_id: 4,
+        blogpost_id: 4,
     },
     {
         comment: 
                 'Comment Comment Comment',
         creation_date: 'March 31, 2020',
         user_id: 3,
-        post_id: 6,
+        blogpost_id: 6,
     },
     {
         comment: 
                 'Comment Comment Comment',
         creation_date: 'March 31, 2020',
         user_id: 1,
-        post_id: 4,
+        blogpost_id: 4,
     },
     {
         comment: 
                 'Comment Comment Comment',
         creation_date: 'March 31, 2020',
         user_id: 2,
-        post_id: 5,
+        blogpost_id: 5,
     },
     {
         comment: 
                 'Comment Comment Comment',
         creation_date: 'March 31, 2020',
         user_id: 1,
-        post_id: 6, 
+        blogpost_id: 6, 
     },
     {
         comment: 
                 'Comment Comment Comment',
         creation_date: 'March 31, 2020',
         user_id: 2,
-        post_id: 7,
+        blogpost_id: 7,
     },
 ];
 
