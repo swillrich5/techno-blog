@@ -50,4 +50,24 @@ router.delete('/:id', withAuth, async (req, res) => {
   });
 
 
+
+  router.post('/', withAuth, async (req, res) => {
+    try {
+      console.log("req.session.userID = " + req.session.userID);
+      const newBlogpost = await Blogpost.create({
+        title: req.body.title,
+        content: req.body.content,
+        creation_date: req.body.creation_date,
+        user_id: req.session.userID,
+      });
+  
+      res.status(200).json(newBlogpost);
+    } catch (err) {
+      console.log(err);
+      res.status(400).json(err);
+    }
+  });
+
+
+
 module.exports = router;

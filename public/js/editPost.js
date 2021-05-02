@@ -35,7 +35,7 @@ const updateBlogPostHandler = async (event) => {
     creation_date = new Date();
     alert("id = " + id);
   
-    if (id && title && title) {
+    if (id && title && content) {
         const response = await fetch(`/api/blogs/${id}`, {
           method: 'PUT',
           body: JSON.stringify({ id, title, content, creation_date }),

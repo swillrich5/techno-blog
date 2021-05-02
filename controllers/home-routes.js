@@ -84,6 +84,7 @@ router.get('/painting/:id', withAuth, async (req, res) => {
   }
 });
 
+
 router.get('/login', (req, res) => {
   console.log("am I here?")
   if (req.session.loggedIn) {
@@ -95,8 +96,10 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+
+
 router.get('/signup', (req, res) => {
-  console.log("am I here in signup?")
+  console.log("am I here in signup?");
   if (req.session.loggedIn) {
     res.redirect('/');
 
@@ -152,6 +155,10 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
 
 
+
+
+
+
 // GET one gallery
 // Use the custom middleware before allowing the user to access the gallery
 router.get('/dashboard/:id', withAuth, async (req, res) => {
@@ -186,6 +193,12 @@ router.get('/dashboard/:id', withAuth, async (req, res) => {
   }
 });
 
+
+
+router.get('/newblogpost', (req, res) => {
+  console.log('This is newpost');
+  res.render('newblogpost');
+});
 
 
 
