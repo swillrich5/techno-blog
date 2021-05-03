@@ -1,8 +1,9 @@
 
 <section class="card bg-dark text-white m-2">
   <a href="/blogpost/{{id}}">
-    <div class="card-header bg-dark">
-      {{ title }}
+    <div class="card-header bg-dark blogpost-title">
+    <span>{{ title }}</span>
+    <span>Posted by: {{user.username}} on: {{format_date creation_date}}</span>
     </div>
     <div class="card-text text-dark  m-1">
         <p class="p-1"> {{ content }}</p>

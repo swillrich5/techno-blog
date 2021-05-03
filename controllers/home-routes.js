@@ -14,12 +14,17 @@ router.get('/', async (req, res) => {
           model: Comment,
           attributes: ['comment'],
         },
+        {
+          model: User,
+        }
       ],
     });
 
     const blogposts = dbBlogpostData.map((blogpost) =>
       blogpost.get({ plain: true })
     );
+
+    console.log(blogposts);
 
     res.render('homepage', {
       blogposts,

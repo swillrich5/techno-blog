@@ -31,3 +31,8 @@ main {
   display: flex;
   justify-content: space-between;
 }
+
+.blogpost-title {
+  display: flex;
+  justify-content: space-between;
+}
