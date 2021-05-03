@@ -1,7 +1,7 @@
 <section class="card bg-dark text-white m-2">
     <div class="card-header bg-dark blogpost-header">
       <p class="lead">{{ blogpost.title }}</p>
-      <p>Posted by: {{ blogpost.user.username }} on {{ blogpost.creation_date }}</p>
+      <p>Posted by: {{ blogpost.user.username }} on {{ format_date blogpost.creation_date }}</p>
     </div>
     <div class="card bg-dark text-white m-1">
         <div class="card-text text-dark  m-1">

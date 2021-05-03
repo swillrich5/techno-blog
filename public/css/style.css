@@ -26,3 +26,8 @@ main {
 .card-text {
   background-color:  rgb(132, 230, 230);
 }
+
+#blogpost-buttons {
+  display: flex;
+  justify-content: space-between;
+}

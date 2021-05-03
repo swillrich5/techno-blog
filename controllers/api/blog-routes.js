@@ -47,6 +47,29 @@ router.delete('/:id', withAuth, async (req, res) => {
 
 
 
+  router.post('/', withAuth, async (req, res) => {
+    console.log("This is req.body");
+    console.log(req.body);
+  try {
+    const updateBlogpost = await Blogpost.create({
+      title: req.body.title,
+      creation_date: req.body.creation_date,
+      content: req.body.content,
+      user_id: req.session.userID,
+    });
+
+    res.status(200).json(updateBlogpost);
+  } catch (err) {
+      console.log(err);
+      res.status(400).json(err);
+  }
+});
+
+
+
+
+
+
   router.post('/postcomment', withAuth, async (req, res) => {
     try {
       console.log("req.session.userID = " + req.session.userID);
