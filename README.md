@@ -8,7 +8,7 @@ techno-blog is a web-based application that allows users to read technical blog 
 
 ## Deployed Application
 
-LINK GOES HERE
+https://boiling-hamlet-77831.herokuapp.com/
 
 ---
 
