@@ -23,46 +23,25 @@ const blogpostdata = [
     user_id: 2,
   },
   {
-    title: 'Why MVC is so important',
+    title: 'Try DuckDuckGo. ',
     content: 
-        'MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic',
+        'DuckDuckGo is a privacy-focused search engine that doesn’t track you. ',
     creation_date: 'March 30, 2018',
     user_id: 2,
   },
   {
-    title: 'Why MVC is so important',
+    title: 'Are you using GitHub?',
     content: 
-        'MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic',
+        'If you\'re not using GitHub, you\'re not a real developer',
     creation_date: 'March 30, 2018',
     user_id: 2,
   },
   {
-    title: 'Why MVC is so important',
+    title: 'SQL vs. NoSQL',
     content: 
-        'MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic',
+        'Do the benefits of NoSQL databases outweigh its drawbacks',
     creation_date: 'March 30, 2018',
     user_id: 2,
-  },
-  {
-    title: 'Why MVC is so important',
-    content: 
-        'MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic',
-    creation_date: 'March 30, 2018',
-    user_id: 3,
-  },
-  {
-    title: 'Why MVC is so important',
-    content: 
-        'MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic',
-    creation_date: 'March 30, 2018',
-    user_id: 3,
-  },
-  {
-    title: 'Why MVC is so important',
-    content: 
-        'MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic',
-    creation_date: 'March 30, 2018',
-    user_id: 3,
   },
 ];
 

@@ -24,45 +24,24 @@ const commentdata = [
     },
     {
         comment: 
-                'Comment Comment Comment',
+                'How does it compare to Google?',
         creation_date: 'March 31, 2020',
         user_id: 3,
         blogpost_id: 4,
     },
     {
         comment: 
-                'Comment Comment Comment',
+                'SQL all the way, bro!',
         creation_date: 'March 31, 2020',
         user_id: 3,
         blogpost_id: 6,
     },
     {
         comment: 
-                'Comment Comment Comment',
+                'It\'s gotta be MongoDB and NoSQL!',
         creation_date: 'March 31, 2020',
         user_id: 1,
-        blogpost_id: 4,
-    },
-    {
-        comment: 
-                'Comment Comment Comment',
-        creation_date: 'March 31, 2020',
-        user_id: 2,
-        blogpost_id: 5,
-    },
-    {
-        comment: 
-                'Comment Comment Comment',
-        creation_date: 'March 31, 2020',
-        user_id: 1,
-        blogpost_id: 6, 
-    },
-    {
-        comment: 
-                'Comment Comment Comment',
-        creation_date: 'March 31, 2020',
-        user_id: 2,
-        blogpost_id: 7,
+        blogpost_id: 6,
     },
 ];
 
