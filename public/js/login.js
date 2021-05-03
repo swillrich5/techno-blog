@@ -1,3 +1,5 @@
+// take the data entered by the user and pass it back to the database
+// for login verification
 const loginFormHandler = async (event) => {
   event.preventDefault();
 

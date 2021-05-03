@@ -1,3 +1,6 @@
+
+// grab the data from the signup.handlebars form and send it to the 
+// database for storage.  Send the user to the homepage
 const signupFormHandler = async (event) => {
     event.preventDefault();
   

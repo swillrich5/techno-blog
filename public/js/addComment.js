@@ -1,13 +1,12 @@
 
-
+// Take the data from the add comment form and send it to the
+// POST route to store it in the database
 const submitCommentHandler = async (event) => {
     event.preventDefault();
   
     var comment = document.querySelector("#comment-content").value;
     const blogpost_id = event.target.getAttribute('data-id');
     creation_date = new Date();
-
-    alert("comment = " + comment + "\nblogpost_id = " + blogpost_id + "\ncreate_date = " + creation_date);
   
     if (comment && blogpost_id && creation_date) {
       const response = await fetch('/api/blogs/postcomment', {
@@ -27,7 +26,7 @@ const submitCommentHandler = async (event) => {
     }
   };
 
-  
+   
 document
 .querySelector('#submit-button')
 .addEventListener('click', submitCommentHandler);

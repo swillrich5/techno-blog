@@ -1,17 +1,15 @@
-// var titleEl = document.querySelector("#blogpost-title");
-// var contentEl = document.querySelector("#blogpost-content");
 
+// grab the id for the blog post that the user wants to delete from 
+// the dashboard and send it to the DELETE route for deletion from 
+// the database
 const deleteBlogPostHandler = async (event) => {
     event.preventDefault();
 
     const id = event.target.getAttribute('data-id');
-    alert("id = " + id);
   
     const response = await fetch(`/api/blogs/${id}`, {
         method: 'DELETE',
     });
-
-
 
     if (response.ok) {
     document.location.replace('/dashboard');
@@ -21,15 +19,18 @@ const deleteBlogPostHandler = async (event) => {
     }
 }
 
+// ------------------------------------------------------------------
+
+
+// send the updated blog post data to the PUT route to store the update
+// in the database
 const updateBlogPostHandler = async (event) => {
     event.preventDefault();
 
     var title = document.querySelector("#blogpost-title").value;
-    alert("title = " + title);
     var content = document.querySelector("#blogpost-content").value;
     const id = event.target.getAttribute('data-id');
     creation_date = new Date();
-    alert("id = " + id);
   
     if (id && title && content) {
         const response = await fetch(`/api/blogs/${id}`, {
@@ -43,14 +44,14 @@ const updateBlogPostHandler = async (event) => {
         if (response.ok) {
           document.location.replace('/dashboard');
         } else {
-          alert('Failed to create project');
+          alert('Failed to update blog post');
         }
     }
 };
 
 
 
-  
+// listeners for the delete and update blog post buttons  
 document
     .querySelector('#delete-button')
     .addEventListener('click', deleteBlogPostHandler);

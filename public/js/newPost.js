@@ -1,9 +1,11 @@
 
+// take the data entered into the newblogpost.handlebars form
+// and pass it back to the database POST route
+// display the updated user dashboard when done
 const newBlogPostHandler = async (event) => {
   event.preventDefault();
 
   var title = document.querySelector("#blogpost-title").value;
-  alert("title = " + title);
   var content = document.querySelector("#blogpost-content").value;
 
   creation_date = new Date();
@@ -24,8 +26,6 @@ const newBlogPostHandler = async (event) => {
     }
   }
 };
-
-
 
   
 document

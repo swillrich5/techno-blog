@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { User, Blogpost, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+
+// delete a blog post along with its comments
 router.delete('/:id', withAuth, async (req, res) => {
     try {
       const blogpostData = await Blogpost.destroy({
@@ -11,8 +13,6 @@ router.delete('/:id', withAuth, async (req, res) => {
         },
       });
 
-      console.log(blogpostData);
-  
       if (!blogpostData) {
         res.status(404).json({ message: 'No blog post found with this id!' });
         return;
@@ -26,15 +26,15 @@ router.delete('/:id', withAuth, async (req, res) => {
   });
 
 
+  // ------------------------------------------------------------------
 
+
+  // update a blog post if the user is logged in
   router.put('/:id', withAuth, async (req, res) => {
-      console.log("This is req.body");
-      console.log(req.body);
     try {
       const updateBlogpost = await Blogpost.update(req.body, {
         where: {
             id: req.params.id,
-          //   user_id: req.session.userID,
           },
       });
   
@@ -45,11 +45,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
   });
 
-
-
   router.post('/', withAuth, async (req, res) => {
-    console.log("This is req.body");
-    console.log(req.body);
   try {
     const updateBlogpost = await Blogpost.create({
       title: req.body.title,
@@ -66,28 +62,26 @@ router.delete('/:id', withAuth, async (req, res) => {
 });
 
 
+// ------------------------------------------------------------------
 
 
+// Allow the user to post a comment if they're logged in
+router.post('/postcomment', withAuth, async (req, res) => {
+  try {
+    const newComment = await Comment.create({
+      comment: req.body.comment,
+      creation_date: req.body.creation_date,
+      user_id: req.session.userID,
+      blogpost_id: req.body.blogpost_id,
+    });
 
-
-  router.post('/postcomment', withAuth, async (req, res) => {
-    try {
-      console.log("req.session.userID = " + req.session.userID);
-      const newComment = await Comment.create({
-        comment: req.body.comment,
-        creation_date: req.body.creation_date,
-        user_id: req.session.userID,
-        blogpost_id: req.body.blogpost_id,
-      });
-  
-      res.status(200).json(newComment);
-      console.log('newComment = ' + newComment);
-      req.session.blogpost_id = req.body.blogpost_id;
-    } catch (err) {
-      console.log(err);
-      res.status(400).json(err);
-    }
-  });
+    res.status(200).json(newComment);
+    req.session.blogpost_id = req.body.blogpost_id;
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
 
 
 

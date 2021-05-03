@@ -1,3 +1,6 @@
+
+// when the user clicks the logout link in the menu,
+// log them out
 const logout = async () => {
   const response = await fetch('/api/users/logout', {
     method: 'POST',
