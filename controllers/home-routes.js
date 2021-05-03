@@ -3,6 +3,8 @@ const { Blogpost, Comment, User } = require('../models');
 // Import the custom middleware
 const withAuth = require('../utils/auth');
 
+const sequelize = require('../config/connection');
+
 // GET all galleries for homepage
 router.get('/', async (req, res) => {
   try {
@@ -14,9 +16,6 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-
-    // console.log(dbBlogpostData);
-    // res.status(200).json(dbBlogpostData);
 
     const blogposts = dbBlogpostData.map((blogpost) =>
       blogpost.get({ plain: true })
@@ -60,24 +59,8 @@ router.get('/blogpost/:id', withAuth, async (req, res) => {
     });
 
     const blogpost = dbBlogpostData.get({ plain: true });
+    console.log(blogpost);
     res.render('blogpost', { blogpost, loggedIn: req.session.loggedIn });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-
-
-// GET one painting
-// Use the custom middleware before allowing the user to access the painting
-router.get('/painting/:id', withAuth, async (req, res) => {
-  try {
-    const dbPaintingData = await Painting.findByPk(req.params.id);
-
-    const painting = dbPaintingData.get({ plain: true });
-
-    res.render('painting', { painting, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -156,10 +139,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
 
 
-
-
-
-// GET one gallery
+// GET one blog post
 // Use the custom middleware before allowing the user to access the gallery
 router.get('/dashboard/:id', withAuth, async (req, res) => {
   try {
@@ -200,6 +180,69 @@ router.get('/newblogpost', (req, res) => {
   res.render('newblogpost');
 });
 
+
+
+  // router.get('/viewpostandcomment/:id', withAuth, async (req, res) => {
+  //   try {
+  //     const dbBlogpostData = await Blogpost.findByPk(req.params.id, {
+  //       include: [
+  //         {
+  //           model: User,
+  //           required: false
+  //         },
+  //         {
+  //           model: Comment,
+  //           required: false
+  //         }
+  //       ],
+  //     });
+
+  //     const blogpost = dbBlogpostData.get({ plain: true });
+  
+  //     console.log(blogpost);
+  //     console.log(commentsArray);
+  
+  //     res.render('displaypostandcomments', { blogpost, commentsArray, loggedIn: req.session.loggedIn });
+  //   } catch (err) {
+  //     console.log(err);
+  //     res.status(500).json(err);
+  //   }
+  // });
+
+
+  router.get('/viewpostandcomment/:id', withAuth, async (req, res) => {
+    try {
+      const dbCommentData = await Comment.findAll({
+        where: {
+          '$Blogpost.id$' : req.params.id
+        },
+        include: [
+          {
+            model: User,
+            required: false
+          },
+          {
+            model: Blogpost,
+            required: false,
+            where: {
+              id: req.params.id
+            }
+          }
+        ],
+      });
+
+      const comments = dbCommentData.map((comment) =>
+        comment.get({ plain: true })
+      );
+
+      console.log(comments);
+  
+      res.render('displaypostandcomments', { comments, loggedIn: req.session.loggedIn });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
 
 
 

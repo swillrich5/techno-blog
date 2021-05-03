@@ -1,0 +1,23 @@
+<section class="card bg-dark text-white m-2">
+    <div class="card-header bg-dark blogpost-header">
+      <p class="lead">{{ comments.[0].blogpost.title }}</p>
+      <p>Posted by: {{ comments.[0].user.username }} on {{ comments.[0].blogpost.creation_date }}</p>
+    </div>
+    <div class="card bg-dark text-white m-1">
+        <div class="card-text text-dark  m-1">
+            <p class="p-1"> {{ comments.[0].blogpost.content }}</p>
+        </div>
+    </div>  
+</section>  
+
+{{#each comments as |comment|}}
+    <section class="card bg-dark text-white pt-4 m-2">
+             <div class="card-text text-dark m-1">
+                <div class="p-1">
+                    <p id="comment-content">{{comment.comment}}</p>
+                    <p>-{{comment.user.username}}, {{comment.creation_date}}   </p>
+                </div>
+            </div>
+    </section>
+{{/each}}
+

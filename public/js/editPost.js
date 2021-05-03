@@ -4,10 +4,6 @@
 const deleteBlogPostHandler = async (event) => {
     event.preventDefault();
 
-    var titleEl = document.querySelector("#blogpost-title");
-    var contentEl = document.querySelector("#blogpost-content");
-    var idEl = document.querySelector("#blogpost-id");
-
     const id = event.target.getAttribute('data-id');
     alert("id = " + id);
   

@@ -1,8 +1,23 @@
 <section class="card bg-dark text-white m-2">
-    <div class="card-header bg-dark">
-      <h1>Taco Bell</h1>
+    <div class="card-header bg-dark blogpost-header">
+      <p class="lead">{{ blogpost.title }}</p>
+      <p>Posted by: {{ blogpost.user.username }} on {{ blogpost.creation_date }}</p>
     </div>
-    <div class="card-text text-dark  m-1">
-        <p class="p-1"> Restaurant}</p>
+    <div class="card bg-dark text-white m-1">
+        <div class="card-text text-dark  m-1">
+            <p class="p-1"> {{ blogpost.content }}</p>
+        </div>
+    </div>    
+    <div class="card-text text-dark m-1">
+      <form class="login-form m-1">
+        <div class="form-group">
+            <label for="blogpost-comment">Comment</label>
+            <textarea class="form-control" id="comment-content" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-secondary btn-block" data-id="{{ blogpost.id }}" id="submit-button" type="submit">Submit</button>
+        </div>
+      </form>
     </div>
 </section>
+<script src="/js/addComment.js"></script>

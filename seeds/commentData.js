@@ -9,7 +9,7 @@ const commentdata = [
         blogpost_id: 1,
     },
     {
-         comment: 
+        comment: 
                 'Yes, it\'s good to have a standard way to implement an application',
         creation_date: 'March 31, 2020',
         user_id: 2,
