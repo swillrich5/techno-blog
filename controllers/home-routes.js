@@ -148,13 +148,14 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
 // get a blog post for editing, using withAuth to make sure the user
 // is logged in
-router.get('/dashboard/:id', withAuth, async (req, res) => {
+router.get('/dashboard/:id', async (req, res) => {
+
   try {
     const dbBlogpostData = await Blogpost.findByPk(req.params.id, {
       include: [
         {
-          model: Comment,
           model: User,
+          model: Comment,
         },
       ],
     });
