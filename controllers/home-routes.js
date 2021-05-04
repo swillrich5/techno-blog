@@ -155,8 +155,13 @@ router.get('/dashboard/:id', async (req, res) => {
       include: [
         {
           model: User,
-          model: Comment,
+          required: false
         },
+
+        {
+          model: Comment,
+          required: false
+        }
       ],
     });
 
