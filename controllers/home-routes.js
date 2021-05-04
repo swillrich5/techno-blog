@@ -24,9 +24,7 @@ router.get('/', async (req, res) => {
       blogpost.get({ plain: true })
     );
 
-    console.log(blogposts);
-
-    res.render('homepage', {
+     res.render('homepage', {
       blogposts,
     });
   } catch (err) {
@@ -111,15 +109,18 @@ router.get('/signup', (req, res) => {
 // Use the custom middleware before allowing the user to access the gallery
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
+    console.log("req.session.username = " + req.session.username);
     const dbBlogpostData = await Blogpost.findAll({
       where: {
         '$User.username$' : req.session.username
+
       },
       include: [
         {
           model: User,
           required: false
         },
+
         {
           model: Comment,
           required: false
@@ -153,24 +154,14 @@ router.get('/dashboard/:id', withAuth, async (req, res) => {
       include: [
         {
           model: Comment,
-          attributes: [
-            'id',
-            'comment',
-            'creation_date',
-            'owner_id',
-          ],
           model: User,
-          attributes: [
-            'id',
-            'username',
-          ]
         },
       ],
     });
 
     const blogpost = dbBlogpostData.get({ plain: true });
 
-    res.render('editPost', { blogpost, loggedIn: req.session.loggedIn });
+    res.render('editPost', {blogpost});
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
