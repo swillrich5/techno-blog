@@ -156,7 +156,7 @@ router.get('/dashboard/:id', async (req, res) => {
 
     const blogpost = dbBlogpostData.get({ plain: true });
 
-    res.render('editPost', {blogpost});
+    res.render('editpost', {blogpost});
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
