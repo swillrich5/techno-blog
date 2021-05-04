@@ -148,11 +148,10 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
 // get a blog post for editing, using withAuth to make sure the user
 // is logged in
-router.get('/dashboard/:id', async (req, res) => {
+router.get('/dashboard/:id', withAuth, async (req, res) => {
 
   try {
-    console.log("req.params.id = " + req.params.id);
-    const dbBlogpostData = await Blogpost.findByPk(req.params.id);
+      const dbBlogpostData = await Blogpost.findByPk(req.params.id);
 
     const blogpost = dbBlogpostData.get({ plain: true });
 
